@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.vscode
+.idea
+Dockerfile
+docker-compose.yml
+
+**/node_modules

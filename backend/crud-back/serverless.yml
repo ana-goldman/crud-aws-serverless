@@ -1,0 +1,17 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: anagoldman
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: crud
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: crud-back
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-west-2
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - httpApi: '*'
