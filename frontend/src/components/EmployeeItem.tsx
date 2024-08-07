@@ -28,13 +28,17 @@ export default function EmployeeItem({
   };
 
   return (
-    <li className='flex items-center bg-gray-100 mb-10 shadow'>
-      <div className='flex-auto text-left px-4 py-2 m-2'>
-        <p className='text-gray-900 leading-none'>{employee.name}</p>
-        <p className='text-gray-600'>{employee.surname}</p>
+    <li className='flex items-center bg-gray-100 mb-10 shadow p-2'>
+      <div className='flex-grow text-left overflow-hidden py-1 md:px-4 md:py-2 m-2'>
+        <p className='text-gray-900 overflow-hidden text-ellipsis whitespace-nowrap leading-none'>
+          {employee.name}
+        </p>
+        <p className='text-gray-600 overflow-hidden text-ellipsis whitespace-nowrap'>
+          {employee.surname}
+        </p>
         <span className='inline-block text-sm font-semibold mt-1'>{employee.department.name}</span>
       </div>
-      <div className='flex-auto text-right px-4 py-2 m-2'>
+      <div className='flex-shrink-0 text-right py-1 md:px-4 md:py-2 md:m-2'>
         <Link href={`/editEmployee/${employee._id}`}>
           <button
             title='Edit'

@@ -1,5 +1,6 @@
-import { Employee } from '@/types/types';
+import { Department, Employee } from '@/types/types';
 import Link from 'next/link';
+import Dropdown from './Dropdown';
 
 type FormProps = {
   employee: Employee;
@@ -16,8 +17,17 @@ export default function Form({
   successMessage,
   error,
 }: FormProps) {
+  const handleDepartmentChange = (department: Department | null) => {
+    handleChange({
+      target: {
+        name: 'department',
+        value: department ? department.name : '',
+      },
+    } as React.ChangeEvent<HTMLInputElement>);
+  };
+
   return (
-    <form className='w-full min-h-screen max-w-sm container mt-20 mx-auto' onSubmit={onSubmit}>
+    <form className='w-full min-h-screen max-w-sm container mx-auto' onSubmit={onSubmit}>
       <div className='w-full mb-5'>
         <label
           className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
@@ -57,13 +67,9 @@ export default function Form({
         >
           Department
         </label>
-        <input
-          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:text-gray-600'
-          name='department'
-          value={employee.department.name}
-          onChange={handleChange}
-          type='text'
-          placeholder='Enter department'
+        <Dropdown
+          initialDepartment={employee.department}
+          onDepartmentChange={handleDepartmentChange}
         />
       </div>
       {successMessage && <p className='text-sm text-green-500'>{successMessage}</p>}

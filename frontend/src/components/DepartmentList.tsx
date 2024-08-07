@@ -6,7 +6,7 @@ import DepartmentItem from './DepartmentItem';
 import { getAllItems } from '@/api/getAllItems';
 
 export default function DepartmentList() {
-  const [departmets, setDepartmets] = useState<Department[]>([]);
+  const [departments, setDepartments] = useState<Department[]>([]);
   const [activeDepartment, setActiveDepartment] = useState<Department | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export default function DepartmentList() {
     setLoading(true);
     getAllItems(process.env.NEXT_PUBLIC_API_URL + '/departments')
       .then((data) => {
-        setDepartmets(data);
+        setDepartments(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -38,7 +38,7 @@ export default function DepartmentList() {
 
   return (
     <ul>
-      {departmets.map((department: Department) => (
+      {departments.map((department: Department) => (
         <DepartmentItem
           department={department}
           activeDepartment={activeDepartment}

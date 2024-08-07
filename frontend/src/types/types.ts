@@ -11,5 +11,5 @@ export type Employee = {
 export type Department = {
   _id: string;
   name: string;
-  employees: Omit<Employee, 'department'>[];
+  employees?: Omit<Employee, 'department'>[];
 };

@@ -33,7 +33,7 @@ export default function DepartmentItem({
 
   return (
     <li
-      className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold mr-3 mb-3 py-2 px-4 rounded-full inline-flex items-center cursor-pointer'
+      className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold mr-2 md:mr-3 mb-3 py-2 px-3 rounded-full inline-flex items-center cursor-pointer'
       key={department._id}
       onClick={() => selectDepartment(department)}
     >

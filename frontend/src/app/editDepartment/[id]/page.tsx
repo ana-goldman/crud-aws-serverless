@@ -40,7 +40,7 @@ export default function EditDepartmentPage() {
   };
 
   return (
-    <form className='w-full min-h-screen max-w-sm container mt-20 mx-auto' onSubmit={onSubmit}>
+    <form className='w-full min-h-screen max-w-sm container mx-auto' onSubmit={onSubmit}>
       <div className='w-full mb-5'>
         <label
           className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
